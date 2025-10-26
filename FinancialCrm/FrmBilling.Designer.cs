@@ -41,7 +41,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBillId = new System.Windows.Forms.TextBox();
-            this.txtBillTiltle = new System.Windows.Forms.TextBox();
+            this.txtBillTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.txtBillAmount = new System.Windows.Forms.Label();
@@ -157,7 +157,7 @@
             this.panel2.Controls.Add(this.txtBillPeriod);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.txtBillAmount);
-            this.panel2.Controls.Add(this.txtBillTiltle);
+            this.panel2.Controls.Add(this.txtBillTitle);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtBillId);
             this.panel2.Controls.Add(this.label1);
@@ -192,10 +192,10 @@
             // 
             // txtBillTiltle
             // 
-            this.txtBillTiltle.Location = new System.Drawing.Point(89, 40);
-            this.txtBillTiltle.Name = "txtBillTiltle";
-            this.txtBillTiltle.Size = new System.Drawing.Size(229, 20);
-            this.txtBillTiltle.TabIndex = 3;
+            this.txtBillTitle.Location = new System.Drawing.Point(89, 40);
+            this.txtBillTitle.Name = "txtBillTiltle";
+            this.txtBillTitle.Size = new System.Drawing.Size(229, 20);
+            this.txtBillTitle.TabIndex = 3;
             // 
             // label2
             // 
@@ -322,7 +322,7 @@
         private System.Windows.Forms.Label txtBillPeriod;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label txtBillAmount;
-        private System.Windows.Forms.TextBox txtBillTiltle;
+        private System.Windows.Forms.TextBox txtBillTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBillId;
         private System.Windows.Forms.Button btnBillList;
