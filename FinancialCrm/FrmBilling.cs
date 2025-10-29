@@ -27,7 +27,14 @@ namespace FinancialCrm
         private void btnCreateBill_Click(object sender, EventArgs e)
         {
             string title = txtBillTitle.Text;
-            decimal amount = decimal.Parse(txtBillAmount.Text);
+            decimal amount;
+
+            if (!decimal.TryParse(txtBillAmount.Text.Replace(".", ","),
+                out amount))
+            {
+                MessageBox.Show("Lütfen geçerli bir tutar giriniz.");
+                return;
+            }
             string period = txtBillPeriod.Text;
 
             Bills bills = new Bills();
@@ -40,6 +47,45 @@ namespace FinancialCrm
 
             var values = db.Bills.ToList();
             dataGridView1.DataSource = values;
+        }
+
+        private void btnRemoveBill_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtBillId.Text);
+            var removeValue = db.Bills.Find(id);
+            db.Bills.Remove(removeValue);
+            db.SaveChanges();
+            MessageBox.Show("Fatura Silindi");
+
+            var values = db.Bills.ToList();
+            dataGridView1.DataSource = values;
+        }
+
+        private void btnUpdateBill_Click(object sender, EventArgs e)
+        {
+            string title = txtBillTitle.Text;
+            decimal amount = decimal.Parse(txtBillAmount.Text);
+            string period = txtBillPeriod.Text;
+            int id = int.Parse(txtBillId.Text);
+
+            var values = db.Bills.Find(id);
+
+            values.BillTitle = title;
+            values.BillAmount = amount;
+            values.BillPeriod = period;
+            db.Bills.Add(values);
+            db.SaveChanges();
+            MessageBox.Show("Fatura Güncellendi");
+
+            var values2 = db.Bills.ToList();
+            dataGridView1.DataSource = values2;
+        }
+
+        private void btnBanksForm_Click(object sender, EventArgs e)
+        {
+            FrmBanks frm = new FrmBanks();
+            frm.Show();
+            this.Hide();
         }
     }
 }
