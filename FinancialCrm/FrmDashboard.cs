@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FinancialCrm.Models;
 
 namespace FinancialCrm
 {
@@ -15,6 +16,12 @@ namespace FinancialCrm
         public FrmDashboard()
         {
             InitializeComponent();
+        }
+        FinancialCrmDBEntities db = new FinancialCrmDBEntities();
+        private void FrmDashboard_Load(object sender, EventArgs e)
+        {
+            var totalBalance = db.Banks.Sum(a => a.BankBalance);
+            lblTotalBalance.Text = totalBalance.ToString();
         }
     }
 }
